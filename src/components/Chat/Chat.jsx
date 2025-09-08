@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import Markdown from 'react-markdown';
 import styles from './Chat.module.css';
 
@@ -7,6 +8,12 @@ const WELCOME_MESSAGE = {
 };
 
 export function Chat({messages}) {
+  const messageEndRef = useRef(null);
+  // Scroll to the bottom when messages change
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
     <div className={styles.Chat}>
       <div className="chat-header">
@@ -17,6 +24,7 @@ export function Chat({messages}) {
           <Markdown>{content}</Markdown>
         </div>
       ))}
+      <div ref={messageEndRef} />
     </div>
   );
 }
