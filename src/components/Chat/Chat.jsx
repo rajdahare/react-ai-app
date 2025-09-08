@@ -24,7 +24,7 @@ export function Chat({messages}) {
           <Markdown>{content}</Markdown>
         </div>
       ))}
-      <div ref={messageEndRef} />
+      <div ref={messageEndRef} /> 
     </div>
   );
 }
