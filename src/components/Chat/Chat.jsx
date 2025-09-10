@@ -11,7 +11,10 @@ export function Chat({messages}) {
   const messageEndRef = useRef(null);
   // Scroll to the bottom when messages change
   useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const lastMessage = messages[messages.length - 1];
+    if(lastMessage?.role === "user"){
+        messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, [messages]);
 
   return (
