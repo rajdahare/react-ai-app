@@ -25,5 +25,6 @@
   width: 100%;
   background: light-dark(#ffffff,#212121);
   border-radius: 16px;
+  padding: 8px;
   overflow-y: auto;
 }
